@@ -405,7 +405,25 @@ final class PDFReaderViewController: UIViewController, AVSpeechSynthesizerDelega
             styleButton(playPauseButton, icon: "⏸", title: "Pause")
         }
     }
-    
+    private func detectLanguage(from text: String) -> String {
+        // Gujarati Unicode range: 0A80–0AFF
+        let gujaratiRange = "\u{0A80}"..."\u{0AFF}"
+
+        // Hindi (Devanagari) Unicode range: 0900–097F
+        let hindiRange = "\u{0900}"..."\u{097F}"
+
+        // Check Gujarati
+        if text.unicodeScalars.contains(where: { gujaratiRange.contains(String($0)) }) {
+            return "gu-IN"   // Gujarati India
+        }
+
+        // Check Hindi
+        if text.unicodeScalars.contains(where: { hindiRange.contains(String($0)) }) {
+            return "hi-IN"   // Hindi India
+        }
+
+        return "en-IN"       // Default English
+    }
     
     // MARK: - Restart player
     @objc private func restartReading() {

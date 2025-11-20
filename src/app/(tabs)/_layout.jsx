@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { Library, Camera, Play, Settings } from "lucide-react-native";
+import {Library, Camera, Play, Settings, NotebookIcon} from "lucide-react-native";
 import { useColors } from "@/components/useColors";
 
 export default function TabLayout() {
@@ -42,8 +42,8 @@ export default function TabLayout() {
       <Tabs.Screen
         name="player"
         options={{
-          title: "Player",
-          tabBarIcon: ({ color, size }) => <Play color={color} size={24} />,
+          title: "Notes",
+          tabBarIcon: ({ color, size }) => <NotebookIcon color={color} size={24} />,
         }}
       />
       <Tabs.Screen

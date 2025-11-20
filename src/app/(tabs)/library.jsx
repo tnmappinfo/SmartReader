@@ -16,6 +16,9 @@ import * as Haptics from "expo-haptics";
 import { useColors } from "@/components/useColors";
 import Header from "@/components/Header";
 import { storageAPI } from "@/utils/storage";
+import { requireNativeModule } from "expo-modules-core";
+
+const PdfReader = requireNativeModule("PdfReader");
 
 export default function LibraryScreen() {
   const insets = useSafeAreaInsets();
@@ -113,10 +116,12 @@ export default function LibraryScreen() {
 
   const handleOpenPDF = (pdf) => {
       console.log("Handle open pdf:", pdf)
-    router.push({
-      pathname: "/(tabs)/player",
-      params: { pdfId: pdf.id },
-    });
+      PdfReader.open(pdf.uri, pdf.name);
+
+    // router.push({
+    //   pathname: "/(tabs)/player",
+    //   params: { pdfId: pdf.id },
+    // });
   };
 
   const formatDate = (dateString) => {

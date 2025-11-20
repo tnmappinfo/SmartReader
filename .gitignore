@@ -5,8 +5,8 @@
 expo-env.d.ts
 # @end expo-cli
 yarn.lock
-ios
-android
+/ios/
+/android/
 node_modules
 .idea/
 .expo/

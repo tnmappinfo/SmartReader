@@ -422,7 +422,7 @@ final class PDFReaderViewController: UIViewController, AVSpeechSynthesizerDelega
             return "hi-IN"   // Hindi India
         }
 
-        return "en-IN"       // Default English
+        return ""       // Default English
     }
     
     // MARK: - Restart player
@@ -531,11 +531,17 @@ final class PDFReaderViewController: UIViewController, AVSpeechSynthesizerDelega
             
             let u = AVSpeechUtterance(string: item.text)
             u.rate = self.mappedRate(factor: self.speedFactor)
-            //            u.voice = getVoice()
+            let lang = detectLanguage(from: item.text)
+//            print("lang: ", lang)
+            if lang.isEmpty == false {
+                u.voice = AVSpeechSynthesisVoice(language: lang)
+            }
+            
             if let v = self.selectedVoice() { u.voice = v }
             self.synthesizer.speak(u)
         }
     }
+    
     
     private func ensurePageVisible(_ page: PDFPage, completion: @escaping () -> Void) {
         pdfView.go(to: page)

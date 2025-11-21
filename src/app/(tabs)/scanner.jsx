@@ -13,12 +13,12 @@ import {useSafeAreaInsets} from "react-native-safe-area-context";
 import {StatusBar} from "expo-status-bar";
 import {CameraView, useCameraPermissions} from "expo-camera";
 import {Camera, Check, X, RotateCcw, Save, Plus} from "lucide-react-native";
-// import {Image} from "expo-image";
 import * as ImageManipulator from "expo-image-manipulator";
 import * as Haptics from "expo-haptics";
 import {useColors} from "@/components/useColors";
 import Header from "@/components/Header";
 import {storageAPI} from "@/utils/storage";
+import {Paths, File} from 'expo-file-system';
 
 export default function ScannerScreen() {
     const insets = useSafeAreaInsets();
@@ -50,6 +50,27 @@ export default function ScannerScreen() {
             });
 
             if (photo?.uri) {
+                // console.log("Photo URI:", photo.uri)
+                //
+                // const file = new File(photo.uri);
+                // console.log(file.uri); // '${documentDirectory}/example.txt'
+                // const copiedFile = new File(Paths.cache, photo.uri.split("Camera/")[1]);
+                // file.copy(copiedFile);
+
+                // const file = new File(Paths.document, photo.uri.split("Camera/")[1]);
+                // file.create();
+                //
+                // const copiedFile = new File(Paths.cache, photo.uri.split("Camera/")[1]);
+                // file.copy(copiedFile);
+                // console.log("copiedFile:", copiedFile)
+                // console.log("file:", file)
+
+                // const destPath = FileSystem.documentDirectory + photo.uri.split("Camera/")[1];
+                // await FileSystem.copyAsync({
+                //     from: photo?.uri,
+                //     to: destPath,
+                // });
+
                 setScannedImages((prev) => [
                     ...prev,
                     {

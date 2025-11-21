@@ -1,11 +1,17 @@
-import { NativeModule, requireNativeModule } from 'expo';
+import {NativeModule, requireNativeModule} from 'expo';
 
-import { PdfReaderModuleEvents } from './PdfReader.types';
+import {PdfReaderModuleEvents} from './PdfReader.types';
 
 declare class PdfReaderModule extends NativeModule<PdfReaderModuleEvents> {
-  PI: number;
-  hello(): string;
-  setValueAsync(value: string): Promise<void>;
+    PI: number;
+    hello(): string;
+    open(): (title: string,
+             uri: string,
+             pageNumber: number,
+             isFromNotes: boolean,
+             lastPage: number,
+             lastSIndex: number) => void;
+    setValueAsync(value: string): Promise<void>;
 }
 
 // This call loads the native module object from the JSI.

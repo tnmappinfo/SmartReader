@@ -45,6 +45,11 @@
       [
         "expo-build-properties",
         {
+          "android": {
+            "extraMavenRepos": ["https://maven.ghostscript.com"],
+            "enableShrinkResourcesInReleaseBuilds": true,
+            "enableProguardInReleaseBuilds": true
+          },
           "ios": {
             "useFrameworks": "static"
           }

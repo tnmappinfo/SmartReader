@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="page_indicator">#C0202020</color>
+	<color name="toolbar">#C0202020</color>
+	<color name="white">#FFFFFF</color>
+	<color name="primary">#93C5FD</color>
+	<color name="text">#1E3A8A</color>
+	<color name="background">#1c1b1f</color>
+</resources>

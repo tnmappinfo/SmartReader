@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:orientation="vertical">
+
+    <TextView
+            android:id="@+id/pageNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/page_indicator"
+            android:textColor="@color/text"
+            android:textSize="16sp" />
+
+    <LinearLayout
+            android:id="@+id/llMediaButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@color/primary"
+            android:gravity="center"
+            android:padding="12dp"
+            android:weightSum="4">
+
+        <!-- Play / Pause -->
+        <TextView
+                android:id="@+id/tvMediaRestart"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_restart_alt_24"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Restart"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+        <!-- Play / Pause -->
+        <TextView
+                android:id="@+id/tvMediaPlay"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_play_arrow_24"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="Play"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+        <!-- Speed -->
+        <TextView
+                android:id="@+id/tvMediaSpeed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_fast_forward_24"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:singleLine="true"
+                android:text="1x"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+
+        <!-- Notes -->
+        <TextView
+                android:id="@+id/tvNotes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTop="@drawable/ic_note_add_24"
+                android:gravity="center"
+                android:text="Notes"
+                android:textColor="@color/text"
+                android:textSize="14sp" />
+
+    </LinearLayout>
+</LinearLayout>
